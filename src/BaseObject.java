@@ -1,12 +1,10 @@
 
 public abstract class BaseObject {
 
-    private double x;
-    private double y;
-    private double radius;
-
+    protected double x;
+    protected double y;
+    protected double radius;
     private boolean isAlive;
-
     public BaseObject(double x, double y, double radius) {
         this.x = x;
         this.y = y;
