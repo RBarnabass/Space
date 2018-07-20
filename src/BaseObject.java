@@ -12,7 +12,7 @@ public abstract class BaseObject {
         isAlive = true;
     }
 
-    public void draw() {
+    public void draw(Canvas canvas) {
 
     }
 
