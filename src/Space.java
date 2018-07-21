@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Space {
 
@@ -18,6 +19,20 @@ public class Space {
     public Space(int width, int height) {
         this.width = width;
         this.height = height;
+    }
+
+    public void moveAllItems() {
+        for (BaseObject object : getAllItems()) {
+            object.move();
+        }
+    }
+
+    public List<BaseObject> getAllItems() {
+        ArrayList<BaseObject> list = new ArrayList<BaseObject>(ufos);
+        list.add(ship);
+        list.addAll(bombs);
+        list.addAll(rockets);
+        return list;
     }
 
     public void setShip(SpaceShip ship) {
