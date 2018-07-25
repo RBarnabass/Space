@@ -1,7 +1,12 @@
-
-public class SpaceShip extends BaseObject{
-
-    private int dx = 0;
+public class SpaceShip extends BaseObject {
+    private static int[][] matrix = {
+            {0, 0, 0, 0, 0},
+            {0, 0, 1, 0, 0},
+            {0, 0, 1, 0, 0},
+            {1, 0, 1, 0, 1},
+            {1, 1, 1, 1, 1},
+    };
+    private double dx = 0;
 
     public SpaceShip(double x, double y) {
         super(x, y, 3);
@@ -16,14 +21,14 @@ public class SpaceShip extends BaseObject{
     }
 
     @Override
-    public void move() {
-        setX(getX() + dx);
-        checkBorders(radius, Space.game.getWidth() - radius + 1, 1, Space.game.getHeight() + 1);
+    public void draw(Canvas canvas) {
+        canvas.drawMatrix(x - radius + 1, y - radius + 1, matrix, 'M');
     }
 
     @Override
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
+    public void move() {
+        x = x + dx;
+        checkBorders(radius, Space.game.getWidth() - radius + 1, 1, Space.game.getHeight() + 1);
     }
 
     public void fire() {
